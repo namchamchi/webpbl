@@ -20,11 +20,17 @@
         h1 {
             text-align: center;
         }
-        .product-info {
-            margin-top: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        .product-info p {
-            margin-bottom: 10px;
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
@@ -33,26 +39,39 @@
 <?php
 require_once "database.php";
 
-if(isset($_GET['id']) && is_numeric($_GET['id'])) {
+if(isset($_GET['id'])) {
     $product_id = $_GET['id'];
     
-    $sql = "SELECT * FROM products WHERE ID = $product_id";
+    $sql = "SELECT * FROM products WHERE ID = '$product_id'";
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) > 0) {
         $product = mysqli_fetch_assoc($result);
-        // Hiển thị thông tin sản phẩm
+        // Hiển thị thông tin sản phẩm trong bảng
 ?>
     <div class="container">
         <h1>Thông tin sản phẩm</h1>
-        <div class="product-info">
-            <p><strong>ID:</strong> <?php echo $product['ID']; ?></p>
-            <p><strong>Tên sản phẩm:</strong> <?php echo $product['Name']; ?></p>
-            <p><strong>Giá:</strong> <?php echo number_format($product['Price'], 0, ",", ".") . " VNĐ"; ?></p>
-            <p><strong>Mô tả:</strong> <?php echo $product['Description']; ?></p>
-            <p><strong>Code:</strong> <?php echo $product['Code']; ?></p>
-            <!-- ... Hiển thị các thông tin khác của sản phẩm -->
-        </div>
+        <table class="product-info">
+            <tr>
+                <th>ID</th>
+                <td><?php echo $product['ID']; ?></td>
+            </tr>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <td><?php echo $product['Name']; ?></td>
+            </tr>
+            <tr>
+                <th>Giá</th>
+                <td><?php echo $product['Price']; ?></td>
+            </tr>
+            <tr>
+                <th>Mô tả</th>
+                <td><?php echo $product['Description']; ?></td>
+            </tr>
+
+
+            <!-- ... Thêm các dòng khác nếu cần -->
+        </table>
     </div>
 <?php
     } else {

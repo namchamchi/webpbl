@@ -5,12 +5,12 @@ setcookie('password', 'ilovesecrets', $date->getTimestamp());
  * Connecting to DB
  */
 $con = new PDO('mysql:host=localhost;dbname=db_webpbl6', 'root', '');
-$commentObject = $con->query("SELECT * FROM comments");
+$commentObject = $con->query("SELECT * FROM comments_2");
 $commentObject->setFetchMode(PDO::FETCH_OBJ);
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     // $body =  htmlspecialchars($_POST['body'], ENT_QUOTES);
-    $body = $_POST['body'];
+    $body = str_replace("<script>", "",$_POST["body"]);
     $commentQuery = $con->prepare("INSERT INTO comments(name, body) VALUES(:name, :body)");
     $commentQuery->execute(['name' => $name, 'body' => $body]);
 }

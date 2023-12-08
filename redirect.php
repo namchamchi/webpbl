@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Chuyển hướng đến trang tương ứng
         switch ($page) {
             case 'page1':
-                header("Location: xss/xss_LV1.php");
+                header("Location: xss/index.php");
                 break;
             case 'page2':
                 header("Location: sql_injection/index.php");

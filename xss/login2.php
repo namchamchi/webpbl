@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
-    header("Location: index.php");
+    header("Location: xss_lv2.php");
 }
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ if (isset($_SESSION["user"])) {
                 // if (password_verify($password, $user["password"])) {
                     session_start();
                     $_SESSION["user"] = "yes";
-                    header("Location: index.php");
+                    header("Location: xss_lv2.php");
                     die();
                 // } else {
                 //     echo "<div class='alert alert-danger'>Password does not match</div>";
@@ -40,7 +40,7 @@ if (isset($_SESSION["user"])) {
             }
         }
         ?>
-        <form action="login.php" method="post">
+        <form action="login2.php" method="post">
             <div class="form-group">
                 <input type="text" placeholder="Enter Email:" name="email" class="form-control">
             </div>

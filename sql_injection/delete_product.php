@@ -4,7 +4,7 @@ require_once "database.php";
 if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     $product_id = $_GET['id'];
     
-    $sql = "DELETE FROM products WHERE id = $product_id";
+    $sql = "DELETE FROM products WHERE id = $'product_id'";
     if(mysqli_query($conn, $sql)) {
         echo "Sản phẩm đã được xoá thành công.";
     } else {
