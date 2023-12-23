@@ -39,8 +39,8 @@
     <form action="redirect.php" method="post">
         <button type="submit" name="page" value="page1">Comment(XSS)</button>
         <button type="submit" name="page" value="page2">Login(SQLi)</button>
-        <button type="submit" name="page" value="page3">UploadsProfile(PathTraversal)</button>
-        <button type="submit" name="page" value="page4">Coomingsoon</button>
+        <button type="submit" name="page" value="page3">PathTraversal</button>
+        <button type="submit" name="page" value="page4">File upload</button>
     </form>
 </body>
 </html>

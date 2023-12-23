@@ -35,7 +35,7 @@ if (!isset($_SESSION["user"])) {
                 </thead>
                 <tbody>
                     <?php
-                    require_once "database.php";
+                    require_once "../database.php";
                     $sql = "SELECT * FROM products";
                     $result = mysqli_query($conn, $sql);
 
@@ -46,8 +46,8 @@ if (!isset($_SESSION["user"])) {
                         echo '<td>' . $row['Price'] . '</td>';
                         echo '<td>' . $row['Description'] . '</td>';
                         echo '<td>' . $row['Code'] . '</td>';
-                        echo '<td><a href="delete_product.php?id=' . $row['ID'] . '" onclick="return confirm(\'Bạn có chắc chắn muốn xoá sản phẩm này?\')">Xóa</a></td>';
-                        echo '<td><a href="detail_product.php?id=' . $row['ID'] . '">Xem</a></td>';
+                        echo '<td><a href="delete_product.php?ID=' . $row['ID'] . '" onclick="return confirm(\'Bạn có chắc chắn muốn xoá sản phẩm này?\')">Xóa</a></td>';
+                        echo '<td><a href="detail_product.php?ID=' . $row['ID'] . '">Xem</a></td>';
                         echo '</tr>';
                     }
                     mysqli_close($conn);

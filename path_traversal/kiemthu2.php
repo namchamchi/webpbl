@@ -38,6 +38,12 @@
     </div>
 
     <?php
+    // $file_name = $_GET['file_name'];
+    // $file_path = '/imgs/' . $file_name;
+    // if (file_exists($file_path))
+    //     readfile($file_path);
+    // else
+    //     echo '404 Not Founf';
     $images = ['1.jpg', '2.jpg', '3.jpg'];
 
     if (isset($_GET['image']) && is_numeric($_GET['image'])) {

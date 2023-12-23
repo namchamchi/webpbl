@@ -12,10 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: sql_injection/index.php");
                 break;
             case 'page3':
-                header("Location: path_traversal/index.php");
+                header("Location: path_traversal/index.html");
                 break;
             case 'page4':
-                header("Location: command_Injection/index.html");
+                header("Location: command_Injection/login.php");
                 break;
             default:
                 header("Location: index.php");

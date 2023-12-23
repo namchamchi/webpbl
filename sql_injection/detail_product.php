@@ -37,13 +37,13 @@
 <body>
 
 <?php
-require_once "database.php";
+require_once "../database.php";
 
-if(isset($_GET['id'])) {
-    $product_id = $_GET['id'];
+if(isset($_GET['ID'])) {
+    $product_id = $_GET['ID'];
     
     $sql = "SELECT * FROM products WHERE ID = '$product_id'";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql); 
 
     if(mysqli_num_rows($result) > 0) {
         $product = mysqli_fetch_assoc($result);
@@ -68,7 +68,10 @@ if(isset($_GET['id'])) {
                 <th>Mô tả</th>
                 <td><?php echo $product['Description']; ?></td>
             </tr>
-
+            <tr>
+                <th>Code</th>
+                <td><?php echo $product['Code']; ?></td>
+            </tr>
 
             <!-- ... Thêm các dòng khác nếu cần -->
         </table>
@@ -79,6 +82,7 @@ if(isset($_GET['id'])) {
     }
 } else {
     echo "<p>ID sản phẩm không hợp lệ.</p>";
+  //  echo $result;
 }
 
 mysqli_close($conn);
