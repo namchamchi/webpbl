@@ -14,6 +14,7 @@ if (isset($_SESSION["user"])) {
     <title>Login Form</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
+    <title>Login Form</title>
 </head>
 
 <body>
@@ -28,10 +29,10 @@ if (isset($_SESSION["user"])) {
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if (mysqli_num_rows($result) > 0) {
                 // if (password_verify($password, $user["password"])) {
-                    session_start();
-                    $_SESSION["user"] = "yes";
-                    header("Location: xss_lv1.php");
-                    die();
+                session_start();
+                $_SESSION["user"] = "yes";
+                header("Location: xss_lv1.php");
+                die();
                 // } else {
                 //     echo "<div class='alert alert-danger'>Password does not match</div>";
                 // }
@@ -40,6 +41,7 @@ if (isset($_SESSION["user"])) {
             }
         }
         ?>
+        <h1>Login</h1>
         <form action="login.php" method="post">
             <div class="form-group">
                 <input type="text" placeholder="Enter Email:" name="email" class="form-control">
@@ -52,7 +54,7 @@ if (isset($_SESSION["user"])) {
             </div>
         </form>
         <div>
-            <p>Not registered yet <a href="registration.php">Register Here</a>,<a href="../index.php">back homepage</a></p>
+            <p style="float: right;"><a href="../index.php">back homepage</a></p>
         </div>
     </div>
 </body>

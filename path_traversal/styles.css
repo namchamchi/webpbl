@@ -1,0 +1,68 @@
+/* styles.css */
+
+/* Thiết lập kiểu cho container chứa hình ảnh và nút */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    /* điều chỉnh margin theo nhu cầu */
+}
+
+/* Thiết lập kiểu cho hình ảnh */
+.image img {
+    width: 300px;
+    /* Điều chỉnh kích thước theo nhu cầu */
+    height: auto;
+    border-radius: 8px;
+    /* Bo tròn viền hình ảnh */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng cho hình ảnh */
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    /* Khoảng cách giữa các image-container */
+}
+
+/* Thiết lập kiểu cho nút Detail */
+.detail-btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+    /* Điều chỉnh khoảng cách với hình ảnh */
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    /* Màu nền của nút */
+    color: white;
+    /* Màu chữ */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Hiệu ứng chuyển đổi màu nền */
+}
+
+/* Hover effect cho nút Detail */
+.detail-btn:hover {
+    background-color: #2980b9;
+    /* Màu nền thay đổi khi hover */
+}
+
+.back-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    /* Màu nền của nút */
+    color: white;
+    /* Màu chữ */
+    position: absolute;
+    top: 10px;
+    /* điều chỉnh khoảng cách từ trên xuống */
+    right: 10px;
+    /* điều chỉnh khoảng cách từ phải qua */
+}

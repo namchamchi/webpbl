@@ -1,2 +1,34 @@
-<!-- Trong HTML -->
-<a href="image_loader.php?file_name=1.jpg">xem chi tiet anh</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Path Traversal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <button class="back-btn" onclick="window.location.href='../index.php'">Back homepage</button>
+    <div class="container">
+        <div class="image-container">
+            <div class="image">
+                <img src="imgs/1.jpg" alt="Hình ảnh">
+            </div>
+            <button class="detail-btn" onclick="window.location.href='image_loader.php?file_name=1.jpg'">Detail</button>
+        </div>
+        <div class="image-container">
+            <div class="image">
+                <img src="imgs/2.jpg" alt="Hình ảnh">
+            </div>
+            <button class="detail-btn" onclick="window.location.href='image_loader.php?file_name=2.jpg'">Detail</button>
+        </div>
+        <div class="image-container">
+            <div class="image">
+                <img src="imgs/3.jpg" alt="Hình ảnh">
+            </div>
+            <button class="detail-btn" onclick="window.location.href='image_loader.php?file_name=3.jpg'">Detail</button>
+        </div>
+    </div>
+</body>
+
+</html>

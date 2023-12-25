@@ -36,6 +36,6 @@
 
 <button class="button" onclick="window.location.href='login.php'">XSS1</button>
 <button class="button" onclick="window.location.href='login2.php'">XSS2</button>
-
+<button class="button" onclick="window.location.href='../index.php'">Back home</button>
 </body>
 </html>

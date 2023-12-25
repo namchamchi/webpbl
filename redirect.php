@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: path_traversal/index.html");
                 break;
             case 'page4':
-                header("Location: command_Injection/login.php");
+                header("Location: file_upload/login.php");
                 break;
             default:
                 header("Location: index.php");
