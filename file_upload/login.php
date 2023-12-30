@@ -23,18 +23,24 @@ if (isset($_SESSION["user"])) {
             $email = $_POST["email"];
             $password = $_POST["password"];
             require_once "../database.php";
-            $sql = "SELECT * FROM users WHERE username = '$email' AND password = '$password'";
-            $result = mysqli_query($conn, $sql);
+
+            // Sử dụng prepared statement để ngăn chặn SQL Injection
+            $sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+
+            // Bind các giá trị và thực thi truy vấn
+            mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+            mysqli_stmt_execute($stmt);
+
+            // Lấy kết quả
+            $result = mysqli_stmt_get_result($stmt);
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
             if (mysqli_num_rows($result) > 0) {
-                // if (password_verify($password, $user["password"])) {
                 session_start();
                 $_SESSION["user"] = "yes";
                 header("Location: index.php");
                 die();
-                // } else {
-                //     echo "<div class='alert alert-danger'>Password does not match</div>";
-                // }
             } else {
                 echo "<div class='alert alert-danger'>Email or password does not match</div>";
             }
