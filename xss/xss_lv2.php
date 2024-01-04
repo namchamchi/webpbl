@@ -10,16 +10,14 @@ $commentObject->setFetchMode(PDO::FETCH_OBJ);
 if (isset($_POST['submit'])) {
     //code lỗi
     $name = $_POST['name'];
-    // $body =  htmlspecialchars($_POST['body'], ENT_QUOTES);
+
+    // Sử dụng htmlspecialchars để mã hóa các ký tự đặc biệt trong dữ liệu người dùng
+    $body =  htmlspecialchars($_POST['body'], ENT_QUOTES);
+
     $body = str_replace("<script>", "",$_POST["body"]);
     $commentQuery = $con->prepare("INSERT INTO comments_2(name, body) VALUES(:name, :body)");
     $commentQuery->execute(['name' => $name, 'body' => $body]);
 
-    // $name = $_POST['name'];
-    // // Sử dụng htmlspecialchars để mã hóa các ký tự đặc biệt trong dữ liệu người dùng
-    // $body = htmlspecialchars($_POST['body']);
-    // $commentQuery = $con->prepare("INSERT INTO comments_2(name, body) VALUES(:name, :body)");
-    // $commentQuery->execute(['name' => $name, 'body' => $body]);
 }
 ?>
 <!DOCTYPE html>

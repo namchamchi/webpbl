@@ -45,61 +45,61 @@
 <body>
 
 <?php
-//code lỗi
-require_once "../database.php";
-
-if (isset($_GET['ID'])) {
-    $product_id = $_GET['ID'];
-
-    $sql = "SELECT * FROM products WHERE ID = '$product_id'";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $product = mysqli_fetch_assoc($result);
-        include 'product_info_template.php'; // Including the HTML template
-    } else {
-        echo "<p>Không tìm thấy sản phẩm.</p>";
-    }
-} else {
-    echo "<p>ID sản phẩm không hợp lệ.</p>";
-    // echo $result;
-}
-
-mysqli_close($conn);
-
+// //code lỗi
 // require_once "../database.php";
 
-// if (isset($_GET['ID']) && is_numeric($_GET['ID'])) {
+// if (isset($_GET['ID'])) {
 //     $product_id = $_GET['ID'];
 
-//     $sql = "SELECT * FROM products WHERE ID = ?";
-    
-//     // Sử dụng prepared statement
-//     $stmt = mysqli_prepare($conn, $sql);
-    
-//     // Kiểm tra nếu prepared statement chuẩn bị thành công
-//     if ($stmt) {
-//         // Gắn giá trị vào statement và thực thi
-//         mysqli_stmt_bind_param($stmt, "i", $product_id);
-//         mysqli_stmt_execute($stmt);
+//     $sql = "SELECT * FROM products WHERE ID = '$product_id'";
+//     $result = mysqli_query($conn, $sql);
 
-//         $result = mysqli_stmt_get_result($stmt);
-
-//         if (mysqli_num_rows($result) > 0) {
-//             $product = mysqli_fetch_assoc($result);
-//         } else {
-//             echo "<p>Không tìm thấy sản phẩm.</p>";
-//         }
-
-//         mysqli_stmt_close($stmt);
+//     if (mysqli_num_rows($result) > 0) {
+//         $product = mysqli_fetch_assoc($result);
+//         include 'product_info_template.php'; // Including the HTML template
 //     } else {
-//         echo "<p>Có lỗi xảy ra khi thực hiện truy vấn.</p>";
+//         echo "<p>Không tìm thấy sản phẩm.</p>";
 //     }
 // } else {
 //     echo "<p>ID sản phẩm không hợp lệ.</p>";
+//     // echo $result;
 // }
 
 // mysqli_close($conn);
+
+require_once "../database.php";
+
+if (isset($_GET['ID']) && is_numeric($_GET['ID'])) {
+    $product_id = $_GET['ID'];
+
+    $sql = "SELECT * FROM products WHERE ID = ?";
+    
+    // Sử dụng prepared statement
+    $stmt = mysqli_prepare($conn, $sql);
+    
+    // Kiểm tra nếu prepared statement chuẩn bị thành công
+    if ($stmt) {
+        // Gắn giá trị vào statement và thực thi
+        mysqli_stmt_bind_param($stmt, "i", $product_id);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        if (mysqli_num_rows($result) > 0) {
+            $product = mysqli_fetch_assoc($result);
+        } else {
+            echo "<p>Không tìm thấy sản phẩm.</p>";
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "<p>Có lỗi xảy ra khi thực hiện truy vấn.</p>";
+    }
+} else {
+    echo "<p>ID sản phẩm không hợp lệ.</p>";
+}
+
+mysqli_close($conn);
 
 ?>
 <div class="container">
