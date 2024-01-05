@@ -41,7 +41,7 @@ if (isset($_SESSION["user"])) {
             }
         }
         ?>
-        <h1>Login</h1>
+        <h1>Login To XSS</h1>
         <form action="login.php" method="post">
             <div class="form-group">
                 <input type="text" placeholder="Enter Email:" name="email" class="form-control">
@@ -54,7 +54,7 @@ if (isset($_SESSION["user"])) {
             </div>
         </form>
         <div>
-            <p style="float: right;"><a href="../index.php">back homepage</a></p>
+            <p style="float: right;"><a href="../index.php">Back Homepage</a></p>
         </div>
     </div>
 </body>

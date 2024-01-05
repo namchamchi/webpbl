@@ -32,10 +32,10 @@
 </head>
 <body>
 
-<h1>Trang chủ</h1>
+<h1>CROSS-SITE SCRIPTS</h1>
 
-<button class="button" onclick="window.location.href='login.php'">XSS1</button>
-<button class="button" onclick="window.location.href='login2.php'">XSS2</button>
-<button class="button" onclick="window.location.href='../index.php'">Back home</button>
+<button class="button" onclick="window.location.href='login.php'">STORED XSS</button>
+<button class="button" onclick="window.location.href='login2.php'">XSS-PHISHING</button>
+<button class="button" onclick="window.location.href='../index.php'">Back Home</button>
 </body>
 </html>

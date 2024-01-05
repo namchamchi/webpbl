@@ -14,11 +14,20 @@ if (!isset($_SESSION["user"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>User Dashboard</title>
+    <style>
+        /* CSS cho bảng sản phẩm */
+        .table-row:nth-child(odd) {
+            background-color: #f2f2f2; /* Màu sắc cho các dòng lẻ */
+        }
+
+        .table-row:nth-child(even) {
+            background-color: #ffffff; /* Màu sắc cho các dòng chẵn */
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- <h1>Welcome to Dashboard</h1> -->
         <div class="container-fluid">
             <h1>Danh sách sản phẩm</h1>
             <table class="table">
@@ -27,7 +36,7 @@ if (!isset($_SESSION["user"])) {
                         <th>ID</th>
                         <th>Tên sản phẩm</th>
                         <th>Giá</th>
-                        <th>mô tả</th>
+                        <th>Mô tả</th>
                         <th>Code</th>
                         <th>Xoá</th>
                         <th>Xem</th>
@@ -39,8 +48,12 @@ if (!isset($_SESSION["user"])) {
                     $sql = "SELECT * FROM products";
                     $result = mysqli_query($conn, $sql);
 
+                    $count = 0; // Biến đếm dùng để xác định dòng lẻ/chẵn
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<tr>';
+                        $count++;
+                        $row_class = ($count % 2 == 0) ? 'even' : 'odd'; // Xác định lớp CSS cho từng dòng
+
+                        echo '<tr class="table-row ' . $row_class . '">';
                         echo '<td>' . $row['ID'] . '</td>';
                         echo '<td>' . $row['Name'] . '</td>';
                         echo '<td>' . $row['Price'] . '</td>';
