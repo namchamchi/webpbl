@@ -16,6 +16,7 @@
   </script>
 </head>
 <body>
+<a href="logout.php">Logout</a>
   <form action="upload.php" method="post" enctype="multipart/form-data" class="upload-form" onsubmit="return validateFile()">
     <h2>Select image to upload:</h2>
     <input type="file" name="fileToUpload" id="fileToUpload" class="file-input">
